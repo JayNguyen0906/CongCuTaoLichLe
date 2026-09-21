@@ -85,7 +85,7 @@
             border-radius: 3px;
         }
 
-        /* Schedule Table Styling for 100% html2canvas Compatibility on file:// */
+        /* Schedule Table Styling for 100% html2canvas Compatibility */
         .schedule-table {
             border-collapse: collapse !important;
             width: 100%;
@@ -158,7 +158,7 @@
             <div class="flex items-center gap-3">
                 <button onclick="toggleImageManagerModal()" class="px-4 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg text-xs font-bold transition flex items-center gap-2 shadow">
                     <i class="fa-solid fa-folder-open text-amber-400"></i>
-                    <span>Tải Ảnh Thực Tế Lên Web</span>
+                    <span>Tải Ảnh Tùy Chỉnh Lên</span>
                 </button>
                 <button onclick="resetDefaultData()" class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow" title="Đặt lại mẫu chuẩn">
                     <i class="fa-solid fa-rotate-left"></i>
@@ -277,7 +277,7 @@
                         <div class="relative w-full rounded-lg overflow-hidden shadow border border-amber-500/40 min-h-[130px]" id="headerImageContainer">
                             <div id="headerMedia"></div>
                             
-                            <!-- Date Range Text directly under GIÁO XỨ VẠN LỘC (No box/frame, matching "TRONG TUẦN TẠI" font & color) -->
+                            <!-- Date Range Text directly under GIÁO XỨ VẠN LỘC -->
                             <div class="absolute bottom-1.5 left-0 right-0 text-center px-4 z-10 pointer-events-none">
                                 <span id="displayDateRange" class="font-playfair font-black text-[#0C2340] text-xs sm:text-sm md:text-base tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">
                                     — Từ ngày ... đến ngày ... —
@@ -298,7 +298,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="posterTableBody" class="font-sans text-xs">
-                                    <!-- Dynamic Rows Rendered by JS without rowspan bugs -->
+                                    <!-- Dynamic Rows Rendered by JS -->
                                 </tbody>
                             </table>
                         </div>
@@ -315,25 +315,28 @@
 
     </main>
 
+    <!-- Modal Upload Ảnh Thủ Công nếu Cần -->
     <div id="imageManagerModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-amber-500/40 rounded-2xl max-w-2xl w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 class="text-base font-bold text-amber-400 flex items-center gap-2">
-                    <i class="fa-solid fa-file-image"></i> Tải Ảnh Gốc Từ Máy Tính / Điện Thoại
+                    <i class="fa-solid fa-file-image"></i> Tải Ảnh Tùy Chỉnh Từ Máy Tính / Điện Thoại
                 </h3>
                 <button onclick="toggleImageManagerModal()" class="text-slate-400 hover:text-white text-lg px-2">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <p class="text-xs text-slate-300">Bạn có thể tải các file ảnh bạn có lên đây. Trình duyệt sẽ lưu giữ ảnh trực tiếp trên máy của bạn để tạo file lịch chân thực nhất!</p>
+            <p class="text-xs text-slate-300">
+                Mặc định hệ thống tự đọc file từ thư mục <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/header.png</code>, <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/footer.png</code>, <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/thu2.png</code> ... <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/chuanhat.png</code>. Bạn có thể thay thế bằng file khác ở đây nếu muốn!
+            </p>
 
             <div class="space-y-3 text-xs">
                 <!-- Header Image Upload -->
                 <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
                     <div>
-                        <span class="font-bold text-amber-300 block">1. Ảnh Header (`headder.jpg`)</span>
-                        <span class="text-[10px] text-slate-400">Bao gồm Thánh giá, Chén Thánh, Tên Giáo xứ & Cảnh nhà thờ</span>
+                        <span class="font-bold text-amber-300 block">1. Ảnh Header (`header.png`)</span>
+                        <span class="text-[10px] text-slate-400">Đọc từ `images/header.png` hoặc `header.png`</span>
                     </div>
                     <input type="file" id="uploadHeader" accept="image/*" onchange="handleFileUpload(event, 'header')" class="hidden">
                     <button onclick="document.getElementById('uploadHeader').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
@@ -344,8 +347,8 @@
                 <!-- Footer Image Upload -->
                 <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
                     <div>
-                        <span class="font-bold text-amber-300 block">2. Ảnh Footer (`footer.jpg`)</span>
-                        <span class="text-[10px] text-slate-400">Bao gồm câu Lời Chúa (Lc 22,19) & Khẩu hiệu Giáo Xứ</span>
+                        <span class="font-bold text-amber-300 block">2. Ảnh Footer (`footer.png`)</span>
+                        <span class="text-[10px] text-slate-400">Đọc từ `images/footer.png` hoặc `footer.png`</span>
                     </div>
                     <input type="file" id="uploadFooter" accept="image/*" onchange="handleFileUpload(event, 'footer')" class="hidden">
                     <button onclick="document.getElementById('uploadFooter').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
@@ -356,7 +359,7 @@
                 <!-- Day Icons Bulk Upload -->
                 <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 space-y-2">
                     <div class="flex items-center justify-between">
-                        <span class="font-bold text-amber-300">3. Ảnh Huy Hiệu Ngày Lễ (`Thứ 2.png` -> `Chúa Nhật.png`)</span>
+                        <span class="font-bold text-amber-300">3. Ảnh Huy Hiệu Ngày Lễ (`thu2.png` -> `chuanhat.png`)</span>
                         <input type="file" id="uploadDays" accept="image/*" multiple onchange="handleBulkDayUpload(event)" class="hidden">
                         <button onclick="document.getElementById('uploadDays').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
                             <i class="fa-solid fa-images"></i> Tải Nhiều Ảnh Cùng Lúc
@@ -365,20 +368,20 @@
 
                     <!-- Individual Day Upload Buttons Grid -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2">
-                        <button onclick="triggerDayUpload(0)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 2 (Thánh Thần)</button>
-                        <button onclick="triggerDayUpload(1)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 3 (Thánh An-tôn)</button>
-                        <button onclick="triggerDayUpload(2)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 4 (Thánh Giuse)</button>
-                        <button onclick="triggerDayUpload(3)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 5 (Mình Thánh)</button>
-                        <button onclick="triggerDayUpload(4)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 6 (Thánh Tâm)</button>
-                        <button onclick="triggerDayUpload(5)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 7 (Đức Mẹ)</button>
-                        <button onclick="triggerDayUpload(6)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Chúa Nhật (Phục Sinh)</button>
+                        <button onclick="triggerDayUpload(0)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 2 (thu2.png)</button>
+                        <button onclick="triggerDayUpload(1)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 3 (thu3.png)</button>
+                        <button onclick="triggerDayUpload(2)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 4 (thu4.png)</button>
+                        <button onclick="triggerDayUpload(3)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 5 (thu5.png)</button>
+                        <button onclick="triggerDayUpload(4)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 6 (thu6.png)</button>
+                        <button onclick="triggerDayUpload(5)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 7 (thu7.png)</button>
+                        <button onclick="triggerDayUpload(6)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Chủ Nhật (chuanhat.png)</button>
                     </div>
                 </div>
             </div>
 
             <div class="flex justify-between items-center border-t border-slate-800 pt-3">
                 <button onclick="clearCustomImages()" class="text-xs text-rose-400 hover:underline">
-                    <i class="fa-solid fa-trash-can"></i> Xóa Ảnh Đã Tải & Dùng Mẫu Vẽ 3D
+                    <i class="fa-solid fa-trash-can"></i> Xóa Ảnh Tùy Chỉnh & Đọc File Gốc Trong Thư Mục
                 </button>
                 <button onclick="toggleImageManagerModal()" class="px-5 py-2 bg-amber-500 text-slate-950 font-bold text-xs rounded-lg shadow">
                     Hoàn Tất & Xem Kết Quả
@@ -388,7 +391,7 @@
     </div>
 
     <script>
-        // Custom Image Stores (Base64 saved in localStorage)
+        // Custom Image Stores (Base64 saved in localStorage if manually uploaded)
         let loadedImages = {
             header: localStorage.getItem('gx_vanloc_header') || null,
             footer: localStorage.getItem('gx_vanloc_footer') || null,
@@ -396,6 +399,7 @@
         };
 
         const DAY_NAMES = ['THỨ HAI', 'THỨ BA', 'THỨ TƯ', 'THỨ NĂM', 'THỨ SÁU', 'THỨ BẢY', 'CHỦ NHẬT'];
+        const DAY_FILE_NAMES = ['thu2.png', 'thu3.png', 'thu4.png', 'thu5.png', 'thu6.png', 'thu7.png', 'chuanhat.png'];
         
         let scheduleState = [];
 
@@ -659,7 +663,7 @@
                 else if (name.includes('5') || name.includes('năm') || name.includes('nam')) dayIdx = 3;
                 else if (name.includes('6') || name.includes('sáu') || name.includes('sau')) dayIdx = 4;
                 else if (name.includes('7') || name.includes('bảy') || name.includes('bay')) dayIdx = 5;
-                else if (name.includes('chủ nhật') || name.includes('chu nhat') || name.includes('cn')) dayIdx = 6;
+                else if (name.includes('chủ nhật') || name.includes('chu nhat') || name.includes('chuanhat') || name.includes('cn')) dayIdx = 6;
 
                 if (dayIdx !== -1) {
                     const reader = new FileReader();
@@ -681,14 +685,53 @@
             localStorage.removeItem('gx_vanloc_footer');
             localStorage.removeItem('gx_vanloc_days');
             renderPosterPreview();
-            alert("Đã khôi phục về mẫu vẽ 3D sắc nét mặc định!");
+            alert("Đã khôi phục về tự động nhận file trong thư mục!");
+        }
+
+        // Image fallback handler routines
+        function handleHeaderImgError(img) {
+            if (img.src.includes('images/header.png')) {
+                img.src = 'header.png';
+            } else if (img.src.includes('header.png')) {
+                img.src = 'images/headder.jpg';
+            } else if (img.src.includes('headder.jpg')) {
+                img.src = 'headder.jpg';
+            } else {
+                img.onerror = null;
+                const parent = img.parentElement;
+                if (parent) parent.innerHTML = getSVGHeader();
+            }
+        }
+
+        function handleFooterImgError(img) {
+            if (img.src.includes('images/footer.png')) {
+                img.src = 'footer.png';
+            } else if (img.src.includes('footer.png')) {
+                img.src = 'images/footer.jpg';
+            } else if (img.src.includes('footer.jpg')) {
+                img.src = 'footer.jpg';
+            } else {
+                img.onerror = null;
+                const parent = img.parentElement;
+                if (parent) parent.innerHTML = getSVGFooter();
+            }
+        }
+
+        function handleDayImgError(img, dayIdx) {
+            const fn = DAY_FILE_NAMES[dayIdx];
+            if (img.src.includes('images/' + fn)) {
+                img.src = fn;
+            } else {
+                img.onerror = null;
+                const parent = img.parentElement;
+                if (parent) parent.innerHTML = getSVGDayBadge(dayIdx);
+            }
         }
 
         function getSVGDayBadge(dayIdx) {
             const titles = ['THỨ HAI', 'THỨ BA', 'THỨ TƯ', 'THỨ NĂM', 'THỨ SÁU', 'THỨ BẢY', 'CHỦ NHẬT'];
             const title = titles[dayIdx];
 
-            // SVG Artwork with padded viewBox (0 0 210 56) to guarantee no left border clipping in html2canvas
             const iconsHtml = [
                 // 0: Holy Spirit Dove
                 `<g transform="translate(32, 28) scale(0.95)">
@@ -816,23 +859,23 @@
         }
 
         function renderPosterPreview() {
-            // Render Header Image / SVG
+            // Render Header Image / SVG with cascading fallbacks
             const headerMedia = document.getElementById('headerMedia') || document.getElementById('headerImageContainer');
             if (loadedImages.header) {
                 headerMedia.innerHTML = `<img src="${loadedImages.header}" alt="Header Lịch Phụng Vụ" class="w-full h-auto object-cover block">`;
             } else {
-                headerMedia.innerHTML = getSVGHeader();
+                headerMedia.innerHTML = `<img src="images/header.png" onerror="handleHeaderImgError(this)" alt="Header Lịch Phụng Vụ" class="w-full h-auto object-cover block">`;
             }
 
-            // Render Footer Image / SVG
+            // Render Footer Image / SVG with cascading fallbacks
             const footerContainer = document.getElementById('footerImageContainer');
             if (loadedImages.footer) {
                 footerContainer.innerHTML = `<img src="${loadedImages.footer}" alt="Footer Giáo Xứ Vạn Lộc" class="w-full h-auto object-cover block">`;
             } else {
-                footerContainer.innerHTML = getSVGFooter();
+                footerContainer.innerHTML = `<img src="images/footer.png" onerror="handleFooterImgError(this)" alt="Footer Giáo Xứ Vạn Lộc" class="w-full h-auto object-cover block">`;
             }
 
-            // Render Date Range Badge
+            // Render Date Range Text
             const startVal = document.getElementById('inputStartDate').value;
             const endVal = document.getElementById('inputEndDate').value;
             if(startVal && endVal) {
@@ -854,7 +897,8 @@
                 if (loadedImages.days[dayData.dayIdx]) {
                     dayBadgeHtml = `<img src="${loadedImages.days[dayData.dayIdx]}" alt="${DAY_NAMES[dayData.dayIdx]}" class="h-12 w-auto object-contain mx-auto block">`;
                 } else {
-                    dayBadgeHtml = getSVGDayBadge(dayData.dayIdx);
+                    const fn = DAY_FILE_NAMES[dayData.dayIdx];
+                    dayBadgeHtml = `<img src="images/${fn}" onerror="handleDayImgError(this, ${dayData.dayIdx})" alt="${DAY_NAMES[dayData.dayIdx]}" class="h-12 w-auto object-contain mx-auto block">`;
                 }
 
                 const bgColor = (dIdx % 2 === 0) ? '#FFFDF0' : '#FFFFFF';
@@ -941,7 +985,6 @@
 
                 const canvasElement = document.getElementById('posterCanvas');
 
-                // Advanced html2canvas options safe for file:// execution
                 const canvas = await html2canvas(canvasElement, {
                     scale: 3, // High resolution scale for crisp text & images
                     useCORS: true,
