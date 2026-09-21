@@ -279,7 +279,7 @@
                             
                             <!-- Date Range Text directly under GIÁO XỨ VẠN LỘC -->
                             <div class="absolute bottom-16 left-0 right-0 text-center px-4 z-10 pointer-events-none">
-                                <span id="displayDateRange" class="font-playfair font-black text-[#0C2340] text-xs sm:text-sm md:text-base tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">
+                                <span id="displayDateRange" class="font-playfair font-black text-[#940000] text-xs sm:text-sm md:text-base tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">
                                     — Từ ngày ... đến ngày ... —
                                 </span>
                             </div>
@@ -881,7 +881,7 @@
             if(startVal && endVal) {
                 const s = startVal.split('-');
                 const e = endVal.split('-');
-                document.getElementById('displayDateRange').innerText = `(Từ ${s[2]}/${s[1]} đến ${e[2]}/${e[1]}/${e[0]})`;
+                document.getElementById('displayDateRange').innerText = `(${s[2]}/${s[1]} - ${e[2]}/${e[1]}/${e[0]})`;
             }
 
             // Render Schedule Table Rows using Sub-tables for perfect center alignment
