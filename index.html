@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
+        rel="stylesheet">
     <!-- html2canvas for High-Res PNG Export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -54,7 +57,7 @@
             background: #FFFDF7;
             position: relative;
             box-sizing: border-box;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
             margin: 0 auto;
         }
 
@@ -77,9 +80,11 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0f172a;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 3px;
@@ -141,12 +146,14 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen pb-12">
 
     <header class="bg-slate-900/95 backdrop-blur-md border-b border-amber-500/30 sticky top-0 z-50 p-4 shadow-xl">
         <div class="max-w-[1750px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
-                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg border border-amber-300">
+                <div
+                    class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg border border-amber-300">
                     <i class="fa-solid fa-cross"></i>
                 </div>
                 <div>
@@ -156,15 +163,19 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <button onclick="toggleImageManagerModal()" class="px-4 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg text-xs font-bold transition flex items-center gap-2 shadow">
+                <button onclick="toggleImageManagerModal()"
+                    class="px-4 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg text-xs font-bold transition flex items-center gap-2 shadow">
                     <i class="fa-solid fa-folder-open text-amber-400"></i>
                     <span>Tải Ảnh Tùy Chỉnh Lên</span>
                 </button>
-                <button onclick="resetDefaultData()" class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow" title="Đặt lại mẫu chuẩn">
+                <button onclick="resetDefaultData()"
+                    class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow"
+                    title="Đặt lại mẫu chuẩn">
                     <i class="fa-solid fa-rotate-left"></i>
                     <span>Đặt Lại</span>
                 </button>
-                <button onclick="exportPNGImage()" id="btnExport" class="px-6 py-2.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-lg shadow-xl text-sm transition flex items-center gap-2 transform active:scale-95">
+                <button onclick="exportPNGImage()" id="btnExport"
+                    class="px-6 py-2.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-lg shadow-xl text-sm transition flex items-center gap-2 transform active:scale-95">
                     <i class="fa-solid fa-file-image text-base"></i>
                     <span>TẢI ẢNH PNG A4</span>
                 </button>
@@ -173,32 +184,36 @@
     </header>
 
     <main class="max-w-[1750px] mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
+
         <!-- LEFT CONTROL PANEL (5 cols) -->
-        <section class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-2xl flex flex-col h-[calc(100vh-100px)] sticky top-20">
+        <section
+            class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-2xl flex flex-col h-[calc(100vh-100px)] sticky top-20">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
                 <h2 class="text-sm font-bold text-amber-400 flex items-center gap-2">
                     <i class="fa-solid fa-calendar-plus text-amber-500"></i> Quản Lý & Thêm Thánh Lễ
                 </h2>
-                <span class="text-[10px] bg-amber-500/10 border border-amber-500/30 text-amber-300 px-2 py-0.5 rounded-full font-semibold">
-                    1 Cột Linh Mục
+                <span
+                    class="text-[10px] bg-amber-500/10 border border-amber-500/30 text-amber-300 px-2 py-0.5 rounded-full font-semibold">
+                    Tự Do Nhập Mới
                 </span>
             </div>
 
             <!-- Scrollable Form Controls -->
             <div class="overflow-y-auto pr-1 space-y-4 flex-1">
-                
+
                 <!-- Date Picker Section -->
                 <div class="bg-slate-800/80 p-3.5 rounded-xl border border-amber-500/20 space-y-2">
                     <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider">Thời Gian Tuần Lễ</label>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <span class="text-[11px] text-slate-400 block mb-1">Từ Ngày (Thứ 2):</span>
-                            <input type="date" id="inputStartDate" onchange="handleStartDateChange()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-slate-100 focus:border-amber-400 focus:outline-none">
+                            <input type="date" id="inputStartDate" onchange="handleStartDateChange()"
+                                class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-slate-100 focus:border-amber-400 focus:outline-none">
                         </div>
                         <div>
                             <span class="text-[11px] text-slate-400 block mb-1">Đến Ngày (Chủ Nhật):</span>
-                            <input type="date" id="inputEndDate" onchange="renderPosterPreview()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-slate-100 focus:border-amber-400 focus:outline-none">
+                            <input type="date" id="inputEndDate" onchange="renderPosterPreview()"
+                                class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-slate-100 focus:border-amber-400 focus:outline-none">
                         </div>
                     </div>
                 </div>
@@ -211,48 +226,45 @@
                     <div class="grid grid-cols-2 gap-2">
                         <div>
                             <label class="text-[10px] text-slate-300 block mb-1">Chọn Ngày:</label>
-                            <select id="addDaySelect" class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
-                                <option value="0">Thứ Hai (Tối đa 3 lễ)</option>
-                                <option value="1">Thứ Ba (Tối đa 3 lễ)</option>
-                                <option value="2">Thứ Tư (Tối đa 3 lễ)</option>
-                                <option value="3">Thứ Năm (Tối đa 3 lễ)</option>
-                                <option value="4">Thứ Sáu (Tối đa 3 lễ)</option>
-                                <option value="5">Thứ Bảy (Tối đa 5 lễ)</option>
-                                <option value="6">Chủ Nhật (Tối đa 5 lễ)</option>
+                            <select id="addDaySelect"
+                                class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
+                                <option value="0">Thứ Hai</option>
+                                <option value="1">Thứ Ba</option>
+                                <option value="2">Thứ Tư</option>
+                                <option value="3">Thứ Năm</option>
+                                <option value="4">Thứ Sáu</option>
+                                <option value="5">Thứ Bảy</option>
+                                <option value="6">Chủ Nhật</option>
                             </select>
                         </div>
                         <div>
                             <label class="text-[10px] text-slate-300 block mb-1">Giờ Lễ:</label>
-                            <input type="text" id="addTimeInput" placeholder="VD: 05h00 hoặc 19h00" value="05h00" class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
+                            <input type="text" id="addTimeInput" placeholder="VD: 05h00 hoặc 19h00" value="05h00"
+                                class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2">
                         <div>
                             <label class="text-[10px] text-slate-300 block mb-1">Địa Điểm Nhà Thờ:</label>
-                            <input type="text" id="addLocInput" list="locOptions" placeholder="Chọn hoặc nhập địa điểm..." value="Nhà Thờ Xứ" class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
-                            <datalist id="locOptions">
-                                <option value="Nhà Thờ Xứ"></option>
-                                <option value="Nhà Thờ Yên Lĩnh"></option>
-                                <option value="Nhà Thờ Trung Sơn"></option>
-                                <option value="Nhà Thờ Đặng Phúc"></option>
-                                <option value="Nhà Dòng"></option>
-                            </datalist>
+                            <select id="addLocSelect" onchange="handleSelectOptionChange(this, 'location')"
+                                class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
+                                <!-- Options rendered via JS -->
+                            </select>
                         </div>
                         <div>
                             <label class="text-[10px] text-slate-300 block mb-1">Linh Mục Chủ Tế:</label>
-                            <input type="text" id="addPriestInput" list="priestOptions" placeholder="Chọn hoặc nhập linh mục..." value="Cha Giuse" class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
-                            <datalist id="priestOptions">
-                                <option value="Cha Giuse"></option>
-                                <option value="Cha Phêrô"></option>
-                                <option value="Cha Giuse & Cha Phêrô"></option>
-                                <option value="ĐỒNG TẾ"></option>
-                                <option value="Cha Khách"></option>
-                            </datalist>
+                            <select id="addPriestSelect" onchange="handleSelectOptionChange(this, 'priest')"
+                                class="w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-xs text-slate-100 focus:border-amber-400">
+                                <!-- Options rendered via JS -->
+                            </select>
                         </div>
                     </div>
 
                     <button onclick="addSingleMassEvent()"
+                        class="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs rounded-lg shadow transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-plus"></i> Thêm Thánh Lễ Vào Lịch
+                    </button>
                 </div>
 
                 <!-- Dynamic List of Day Editors -->
@@ -278,12 +290,14 @@
 
                     <div>
                         <!-- Header Banner Image Container -->
-                        <div class="relative w-full rounded-lg overflow-hidden shadow border border-amber-500/40 min-h-[130px]" id="headerImageContainer">
+                        <div class="relative w-full rounded-lg overflow-hidden shadow border border-amber-500/40 min-h-[130px]"
+                            id="headerImageContainer">
                             <div id="headerMedia"></div>
-                            
+
                             <!-- Date Range Text directly under GIÁO XỨ VẠN LỘC -->
-                            <div class="absolute bottom-1.5 left-0 right-0 text-center px-4 z-10 pointer-events-none">
-                                <span id="displayDateRange" class="font-playfair font-black text-[#0C2340] text-xs sm:text-sm md:text-base tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">
+                            <div class="absolute bottom-16 left-0 right-0 text-center px-4 z-10 pointer-events-none">
+                                <span id="displayDateRange"
+                                    class="font-playfair font-black text-[#AB0203] text-base sm:text-lg md:text-xl tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">
                                     — Từ ngày ... đến ngày ... —
                                 </span>
                             </div>
@@ -308,10 +322,30 @@
                         </div>
                     </div>
 
-                    <!-- Footer Image Banner Section -->
-                    <div class="mt-2 rounded-lg overflow-hidden border border-amber-500/40 shadow min-h-[95px]" id="footerImageContainer">
-                        <!-- Footer image or fallback -->
+                    <div style="
+                            position:absolute;
+                            left:80px;
+                            right:0;
+                            bottom:250px;
+                            text-align:center;
+                            color:#AB0203;
+                            font-style:italic;
+                            font-size:20px;
+                            font-weight:700;
+                            z-index:10;
+                        ">
+                            Lưu ý: Sau Thánh Lễ sáng, quý cha sẽ ngồi tòa giải tội.
                     </div>
+
+                    <footer class="poster-foot">
+
+                        <!-- Footer Image Banner Section -->
+                        <div class="mt-2 rounded-lg overflow-hidden border border-amber-500/40 shadow min-h-[95px]"
+                            id="footerImageContainer">
+                            <!-- Footer image or fallback -->
+                        </div>
+
+                    </footer>
 
                 </div>
             </div>
@@ -319,9 +353,11 @@
 
     </main>
 
-    <!-- Modal Upload Ảnh Thủ Công nếu Cần -->
-    <div id="imageManagerModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-amber-500/40 rounded-2xl max-w-2xl w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+    <!-- Modal Upload Ảnh Thủ Công -->
+    <div id="imageManagerModal"
+        class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div
+            class="bg-slate-900 border border-amber-500/40 rounded-2xl max-w-2xl w-full p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 class="text-base font-bold text-amber-400 flex items-center gap-2">
                     <i class="fa-solid fa-file-image"></i> Tải Ảnh Tùy Chỉnh Từ Máy Tính / Điện Thoại
@@ -332,30 +368,40 @@
             </div>
 
             <p class="text-xs text-slate-300">
-                Mặc định hệ thống tự đọc file từ thư mục <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/header.png</code>, <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/footer.png</code>, <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/thu2.png</code> ... <code class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/chuanhat.png</code>. Bạn có thể thay thế bằng file khác ở đây nếu muốn!
+                Mặc định hệ thống tự đọc file từ thư mục <code
+                    class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/header.png</code>, <code
+                    class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/footer.png</code>, <code
+                    class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/thu2.png</code> ... <code
+                    class="text-amber-400 bg-slate-950 px-1 py-0.5 rounded">images/chuanhat.png</code>.
             </p>
 
             <div class="space-y-3 text-xs">
                 <!-- Header Image Upload -->
-                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
+                <div
+                    class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
                     <div>
                         <span class="font-bold text-amber-300 block">1. Ảnh Header (`header.png`)</span>
                         <span class="text-[10px] text-slate-400">Đọc từ `images/header.png` hoặc `header.png`</span>
                     </div>
-                    <input type="file" id="uploadHeader" accept="image/*" onchange="handleFileUpload(event, 'header')" class="hidden">
-                    <button onclick="document.getElementById('uploadHeader').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
+                    <input type="file" id="uploadHeader" accept="image/*" onchange="handleFileUpload(event, 'header')"
+                        class="hidden">
+                    <button onclick="document.getElementById('uploadHeader').click()"
+                        class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
                         <i class="fa-solid fa-upload"></i> Chọn Ảnh Header
                     </button>
                 </div>
 
                 <!-- Footer Image Upload -->
-                <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
+                <div
+                    class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between gap-3">
                     <div>
                         <span class="font-bold text-amber-300 block">2. Ảnh Footer (`footer.png`)</span>
                         <span class="text-[10px] text-slate-400">Đọc từ `images/footer.png` hoặc `footer.png`</span>
                     </div>
-                    <input type="file" id="uploadFooter" accept="image/*" onchange="handleFileUpload(event, 'footer')" class="hidden">
-                    <button onclick="document.getElementById('uploadFooter').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
+                    <input type="file" id="uploadFooter" accept="image/*" onchange="handleFileUpload(event, 'footer')"
+                        class="hidden">
+                    <button onclick="document.getElementById('uploadFooter').click()"
+                        class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
                         <i class="fa-solid fa-upload"></i> Chọn Ảnh Footer
                     </button>
                 </div>
@@ -363,31 +409,49 @@
                 <!-- Day Icons Bulk Upload -->
                 <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 space-y-2">
                     <div class="flex items-center justify-between">
-                        <span class="font-bold text-amber-300">3. Ảnh Huy Hiệu Ngày Lễ (`thu2.png` -> `chuanhat.png`)</span>
-                        <input type="file" id="uploadDays" accept="image/*" multiple onchange="handleBulkDayUpload(event)" class="hidden">
-                        <button onclick="document.getElementById('uploadDays').click()" class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
+                        <span class="font-bold text-amber-300">3. Ảnh Huy Hiệu Ngày Lễ (`thu2.png` ->
+                            `chuanhat.png`)</span>
+                        <input type="file" id="uploadDays" accept="image/*" multiple
+                            onchange="handleBulkDayUpload(event)" class="hidden">
+                        <button onclick="document.getElementById('uploadDays').click()"
+                            class="px-3 py-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/50 rounded font-bold hover:bg-amber-500/30">
                             <i class="fa-solid fa-images"></i> Tải Nhiều Ảnh Cùng Lúc
                         </button>
                     </div>
 
                     <!-- Individual Day Upload Buttons Grid -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2">
-                        <button onclick="triggerDayUpload(0)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 2 (thu2.png)</button>
-                        <button onclick="triggerDayUpload(1)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 3 (thu3.png)</button>
-                        <button onclick="triggerDayUpload(2)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 4 (thu4.png)</button>
-                        <button onclick="triggerDayUpload(3)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 5 (thu5.png)</button>
-                        <button onclick="triggerDayUpload(4)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 6 (thu6.png)</button>
-                        <button onclick="triggerDayUpload(5)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ 7 (thu7.png)</button>
-                        <button onclick="triggerDayUpload(6)" class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Chủ Nhật (chuanhat.png)</button>
+                        <button onclick="triggerDayUpload(0)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            2 (thu2.png)</button>
+                        <button onclick="triggerDayUpload(1)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            3 (thu3.png)</button>
+                        <button onclick="triggerDayUpload(2)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            4 (thu4.png)</button>
+                        <button onclick="triggerDayUpload(3)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            5 (thu5.png)</button>
+                        <button onclick="triggerDayUpload(4)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            6 (thu6.png)</button>
+                        <button onclick="triggerDayUpload(5)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Thứ
+                            7 (thu7.png)</button>
+                        <button onclick="triggerDayUpload(6)"
+                            class="p-2 bg-slate-900 border border-slate-700 rounded text-[11px] text-slate-300 hover:border-amber-400">Chủ
+                            Nhật (chuanhat.png)</button>
                     </div>
                 </div>
             </div>
 
             <div class="flex justify-between items-center border-t border-slate-800 pt-3">
                 <button onclick="clearCustomImages()" class="text-xs text-rose-400 hover:underline">
-                    <i class="fa-solid fa-trash-can"></i> Xóa Ảnh Tùy Chỉnh & Đọc File Gốc Trong Thư Mục
+                    <i class="fa-solid fa-trash-can"></i> Xóa Ảnh Tùy Chỉnh
                 </button>
-                <button onclick="toggleImageManagerModal()" class="px-5 py-2 bg-amber-500 text-slate-950 font-bold text-xs rounded-lg shadow">
+                <button onclick="toggleImageManagerModal()"
+                    class="px-5 py-2 bg-amber-500 text-slate-950 font-bold text-xs rounded-lg shadow">
                     Hoàn Tất & Xem Kết Quả
                 </button>
             </div>
@@ -402,16 +466,23 @@
             days: JSON.parse(localStorage.getItem('gx_vanloc_days') || '{}')
         };
 
+        // Master lists for Location and Priest dropdowns
+        const DEFAULT_LOCATIONS = ['Nhà Thờ Xứ', 'Nhà Thờ Yên Lĩnh', 'Nhà Thờ Trung Sơn', 'Nhà Thờ Đặng Phúc', 'Nhà Dòng'];
+        const DEFAULT_PRIESTS = ['Cha Giuse', 'Cha Phêrô', 'Cha Giuse & Cha Phêrô', 'ĐỒNG TẾ', 'Cha Khách'];
+
+        let locationsList = JSON.parse(localStorage.getItem('gx_vanloc_locations')) || DEFAULT_LOCATIONS;
+        let priestsList = JSON.parse(localStorage.getItem('gx_vanloc_priests')) || DEFAULT_PRIESTS;
+
         const DAY_NAMES = ['THỨ HAI', 'THỨ BA', 'THỨ TƯ', 'THỨ NĂM', 'THỨ SÁU', 'THỨ BẢY', 'CHỦ NHẬT'];
         const DAY_FILE_NAMES = ['thu2.png', 'thu3.png', 'thu4.png', 'thu5.png', 'thu6.png', 'thu7.png', 'chuanhat.png'];
-        
+
         let scheduleState = [];
 
-        window.onload = function() {
+        window.onload = function () {
             const today = new Date();
             const dayOfWeek = today.getDay();
             const distToMon = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-            
+
             const monday = new Date(today);
             monday.setDate(today.getDate() + distToMon);
 
@@ -421,6 +492,7 @@
             document.getElementById('inputStartDate').value = formatDateToInput(monday);
             document.getElementById('inputEndDate').value = formatDateToInput(sunday);
 
+            populateAddFormDropdowns();
             resetDefaultData();
         };
 
@@ -429,7 +501,7 @@
         }
 
         function formatDateVN(dateStr) {
-            if(!dateStr) return '';
+            if (!dateStr) return '';
             const parts = dateStr.split('-');
             return parts.length === 3 ? `${parts[2]}/${parts[1]}` : dateStr;
         }
@@ -440,11 +512,87 @@
             return res;
         }
 
+        // Populates options for the "Thêm Lễ Nhanh" dropdowns
+        function populateAddFormDropdowns() {
+            const locSelect = document.getElementById('addLocSelect');
+            const priestSelect = document.getElementById('addPriestSelect');
+
+            locSelect.innerHTML = buildSelectOptions(locationsList, locationsList[0]);
+            priestSelect.innerHTML = buildSelectOptions(priestsList, priestsList[0]);
+        }
+
+        // Helper function to build HTML options including the "+ Nhập mới..." option
+        function buildSelectOptions(list, selectedVal) {
+            let html = '';
+            list.forEach(item => {
+                const isSelected = item === selectedVal ? 'selected' : '';
+                html += `<option value="${escapeHtml(item)}" ${isSelected}>${escapeHtml(item)}</option>`;
+            });
+            html += `<option value="__NEW__" class="font-bold text-amber-400">➕ Nhập mới...</option>`;
+            return html;
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Handles choice when user clicks an option in any select element
+        function handleSelectOptionChange(selectElem, type, dIdx = null, eIdx = null) {
+            if (selectElem.value === '__NEW__') {
+                const promptMsg = type === 'location' ? 'Nhập tên địa điểm mới:' : 'Nhập tên linh mục mới:';
+                const newName = prompt(promptMsg);
+
+                if (newName && newName.trim() !== '') {
+                    const trimmed = newName.trim();
+                    if (type === 'location') {
+                        if (!locationsList.includes(trimmed)) {
+                            locationsList.push(trimmed);
+                            localStorage.setItem('gx_vanloc_locations', JSON.stringify(locationsList));
+                        }
+                        populateAddFormDropdowns();
+                        if (dIdx !== null && eIdx !== null) {
+                            scheduleState[dIdx].events[eIdx].location = trimmed;
+                        } else {
+                            document.getElementById('addLocSelect').value = trimmed;
+                        }
+                    } else if (type === 'priest') {
+                        if (!priestsList.includes(trimmed)) {
+                            priestsList.push(trimmed);
+                            localStorage.setItem('gx_vanloc_priests', JSON.stringify(priestsList));
+                        }
+                        populateAddFormDropdowns();
+                        if (dIdx !== null && eIdx !== null) {
+                            scheduleState[dIdx].events[eIdx].priest = trimmed;
+                        } else {
+                            document.getElementById('addPriestSelect').value = trimmed;
+                        }
+                    }
+                } else {
+                    // Revert to previously selected value if user cancels
+                    if (dIdx !== null && eIdx !== null) {
+                        selectElem.value = scheduleState[dIdx].events[eIdx][type];
+                    } else {
+                        selectElem.value = type === 'location' ? locationsList[0] : priestsList[0];
+                    }
+                    return;
+                }
+            } else {
+                if (dIdx !== null && eIdx !== null) {
+                    scheduleState[dIdx].events[eIdx][type] = selectElem.value;
+                }
+            }
+
+            if (dIdx !== null && eIdx !== null) {
+                renderFormControls();
+            }
+            renderPosterPreview();
+        }
+
         function handleStartDateChange() {
             const startVal = document.getElementById('inputStartDate').value;
-            if(!startVal) return;
+            if (!startVal) return;
             const startDate = new Date(startVal);
-            
+
             const endDate = new Date(startDate);
             endDate.setDate(startDate.getDate() + 6);
             document.getElementById('inputEndDate').value = formatDateToInput(endDate);
@@ -544,6 +692,9 @@
 
                 let evtsHtml = '';
                 dayData.events.forEach((evt, eIdx) => {
+                    const locOptions = buildSelectOptions(locationsList, evt.location);
+                    const priestOptions = buildSelectOptions(priestsList, evt.priest);
+
                     evtsHtml += `
                         <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-700/80 space-y-2">
                             <div class="flex items-center justify-between">
@@ -555,16 +706,20 @@
                             <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <label class="text-[10px] text-slate-400">Giờ Lễ:</label>
-                                    <input type="text" value="${evt.time}" onchange="updateMassField(${dIdx}, ${eIdx}, 'time', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100">
+                                    <input type="text" value="${escapeHtml(evt.time)}" onchange="updateMassField(${dIdx}, ${eIdx}, 'time', this.value)" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100">
                                 </div>
                                 <div>
                                     <label class="text-[10px] text-slate-400">Linh Mục Chủ Tế:</label>
-                                    <input type="text" list="priestOptions" value="${evt.priest || ''}" onchange="updateMassField(${dIdx}, ${eIdx}, 'priest', this.value)" placeholder="Nhập tên linh mục..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100 focus:border-amber-400">
+                                    <select onchange="handleSelectOptionChange(this, 'priest', ${dIdx}, ${eIdx})" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100">
+                                        ${priestOptions}
+                                    </select>
                                 </div>
                             </div>
                             <div>
                                 <label class="text-[10px] text-slate-400">Địa Điểm Nhà Thờ:</label>
-                                <input type="text" list="locOptions" value="${evt.location || ''}" onchange="updateMassField(${dIdx}, ${eIdx}, 'location', this.value)" placeholder="Nhập địa điểm..." class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100 focus:border-amber-400">
+                                <select onchange="handleSelectOptionChange(this, 'location', ${dIdx}, ${eIdx})" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-xs text-slate-100">
+                                    ${locOptions}
+                                </select>
                             </div>
                         </div>
                     `;
@@ -606,8 +761,8 @@
             }
 
             const time = document.getElementById('addTimeInput').value || '05h00';
-            const location = document.getElementById('addLocInput').value.trim() || 'Nhà Thờ Xứ';
-            const priest = document.getElementById('addPriestInput').value.trim() || 'Cha Giuse';
+            const location = document.getElementById('addLocSelect').value;
+            const priest = document.getElementById('addPriestSelect').value;
 
             scheduleState[dIdx].events.push({ time, location, priest });
             renderFormControls();
@@ -624,7 +779,7 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 const base64 = e.target.result;
                 if (key === 'header') {
                     loadedImages.header = base64;
@@ -882,10 +1037,10 @@
             // Render Date Range Text
             const startVal = document.getElementById('inputStartDate').value;
             const endVal = document.getElementById('inputEndDate').value;
-            if(startVal && endVal) {
+            if (startVal && endVal) {
                 const s = startVal.split('-');
                 const e = endVal.split('-');
-                document.getElementById('displayDateRange').innerText = `— Từ ngày ${s[2]}/${s[1]} đến ngày ${e[2]}/${e[1]}/${e[0]} —`;
+                document.getElementById('displayDateRange').innerText = `(${s[2]}/${s[1]} - ${e[2]}/${e[1]}/${e[0]})`;
             }
 
             // Render Schedule Table Rows using Sub-tables for perfect center alignment
@@ -955,24 +1110,23 @@
                     let subPriestRows = '';
 
                     events.forEach((evt) => {
-                        // Phân màu linh mục linh hoạt theo từ khóa
+                        // Color styling for Priests
                         let priestColor = '#0C2340';
-                        const pName = evt.priest || '';
-                        if (pName.includes('Giuse')) {
-                            priestColor = '#dc2626'; // Đỏ
-                        } else if (pName.includes('Phêrô')) {
-                            priestColor = '#1d4ed8'; // Xanh dương
-                        } else if (pName.toLowerCase().includes('đồng tế')) {
-                            priestColor = '#b91c1c'; // Đỏ thẫm
-                        } else if (pName.toLowerCase().includes('khách')) {
-                            priestColor = '#047857'; // Xanh lá đậm
-                        } else if (pName.includes('&')) {
-                            priestColor = '#7e22ce'; // Tím
+                        if (evt.priest === 'Cha Giuse') {
+                            priestColor = '#dc2626'; // Red
+                        } else if (evt.priest === 'Cha Phêrô') {
+                            priestColor = '#1d4ed8'; // Blue
+                        } else if (evt.priest === 'Cha Giuse & Cha Phêrô') {
+                            priestColor = '#7e22ce'; // Purple
+                        } else if (evt.priest === 'ĐỒNG TẾ' || evt.priest === 'Đồng tế') {
+                            priestColor = '#b91c1c'; // Dark red
+                        } else if (evt.priest === 'Cha Khách') {
+                            priestColor = '#047857'; // Dark green
                         }
 
-                        subTimeRows += `<tr><td style="color:#c2410c; font-weight:bold;">${evt.time}</td></tr>`;
-                        subLocRows += `<tr><td style="color:#1e293b; font-weight:bold;">${evt.location}</td></tr>`;
-                        subPriestRows += `<tr><td style="color:${priestColor}; font-weight:bold;">${evt.priest}</td></tr>`;
+                        subTimeRows += `<tr><td style="color:#c2410c; font-weight:bold;">${escapeHtml(evt.time)}</td></tr>`;
+                        subLocRows += `<tr><td style="color:#1e293b; font-weight:bold;">${escapeHtml(evt.location)}</td></tr>`;
+                        subPriestRows += `<tr><td style="color:${priestColor}; font-weight:bold;">${escapeHtml(evt.priest)}</td></tr>`;
                     });
 
                     tdTime.innerHTML = `<table class="sub-cell-table">${subTimeRows}</table>`;
@@ -998,14 +1152,13 @@
             btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Đang Xuất PNG A4...</span>`;
 
             try {
-                // Wait for fonts & DOM paints
                 await document.fonts.ready;
                 await new Promise(resolve => setTimeout(resolve, 200));
 
                 const canvasElement = document.getElementById('posterCanvas');
 
                 const canvas = await html2canvas(canvasElement, {
-                    scale: 3, // High resolution scale for crisp text & images
+                    scale: 3,
                     useCORS: true,
                     allowTaint: true,
                     backgroundColor: '#FFFDF7',
@@ -1033,11 +1186,12 @@
                 btn.innerHTML = originalContent;
             } catch (err) {
                 console.error("Lỗi xuất ảnh PNG:", err);
-                alert("Chú ý: Nếu bạn mở file HTML trực tiếp bằng đĩa local (file://), trình duyệt có thể hạn chế quyền xuất ảnh. Bạn có thể dùng phím chụp màn hình (Snipping Tool) hoặc dùng qua Live Server/Web Browser preview!");
+                alert("Chú ý: Nếu bạn mở file HTML trực tiếp bằng đĩa local (file://), trình duyệt có thể hạn chế quyền xuất ảnh.");
                 btn.disabled = false;
                 btn.innerHTML = originalContent;
             }
         }
     </script>
 </body>
+
 </html>
